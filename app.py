@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_autorefresh import st_autorefresh  # << این را اضافه کن
 import yfinance as yf
 import mplfinance as mpf
 from io import BytesIO
@@ -11,7 +12,7 @@ interval = st.selectbox("تایم‌فریم:", ["1h", "4h", "1d"], index=2)
 period = st.selectbox("بازه زمانی:", ["7d", "30d", "90d"], index=1)
 
 # Auto Refresh هر 60 ثانیه
-count = st_autorefresh(interval=60000, limit=None, key="refresh")  # 60s
+st_autorefresh(interval=60000, limit=None, key="refresh")  # 60s
 
 # دریافت داده
 symbol = "^DJI"
